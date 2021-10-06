@@ -8,6 +8,22 @@ namespace factorialReplacing
 {
     class Program
     {
+        private static int Check_Prime(int number)
+        {
+            int i;
+            for (i = 2; i <= number - 1; i++)
+            {
+                if (number % i == 0)
+                {
+                    return 0;
+                }
+            }
+            if (i == number)
+            {
+                return 1;
+            }
+            return 0;
+        }
         static void Main(string[] args)
         {
             int n1 = 0, n2 = 1, n3, i, number;
@@ -18,7 +34,7 @@ namespace factorialReplacing
             for (i = 2; i < number; ++i)
             {
                 n3 = n1 + n2;
-                if (n3 % 5 == 0 || n3 % n3  == 0)   
+                if (n3 % 5 == 0 || Check_Prime(n3) != 0)   
                 {
                     Console.Write(0 + " ");
                 }
